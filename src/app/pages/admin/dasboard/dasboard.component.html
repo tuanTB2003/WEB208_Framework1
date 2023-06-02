@@ -75,7 +75,7 @@
                     <ng-template pTemplate="body" let-product>
                         <tr>
                             <td style="width: 15%; min-width: 5rem;">
-                                <img src="https://media.istockphoto.com/id/1237985231/photo/shorts.jpg?s=612x612&w=0&k=20&c=O-52YF684BxeC8EGHu9I68ujBzaPuukYnJrcjshmKb4=" class="shadow-4" alt="{{product.name.slice(0,9)}}" width="50">
+                                <img src={{product.image}} class="shadow-4" alt="{{product.name.slice(0,9)}}" width="50">
                             </td>
                             <td style="width: 35%; min-width: 7rem;">{{product.name.slice(0,20)}}...</td>
                             <td style="width: 35%; min-width: 8rem;">{{product.price | currency:'USD'}}</td>

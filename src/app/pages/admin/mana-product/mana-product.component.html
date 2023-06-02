@@ -20,11 +20,11 @@
 
                 <div class="field">
                     <label for="name">Name</label>
-                    <input type="text" pInputText id="name" >
+                    <input type="text" pInputText id="name" [(ngModel)]="products.name" >
                 </div>
                 <div class="field">
                     <label for="description">Description</label>
-                    <textarea id="description" pInputText id="name" ></textarea>
+                    <textarea id="description" pInputText id="name" [(ngModel)]="products.description"></textarea>
                 </div>
                 <div class="field">
                     <label for="image">Image</label>
@@ -34,7 +34,7 @@
                 </div>
                 <div class="field">
                     <label for="">category</label>
-                        <p-dropdown [options]="categories" [(ngModel)]="categories" placeholder="select" optionLabel="name" inputId="float-label"></p-dropdown>                  
+                        <p-dropdown [options]="categories" [(ngModel)]="categories" placeholder="select" optionLabel="name" inputId="float-label"   ></p-dropdown>                  
                 </div>
                 <div class="formgrid grid">
                     <div class="field col">

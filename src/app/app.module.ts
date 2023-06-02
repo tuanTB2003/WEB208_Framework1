@@ -27,6 +27,8 @@ import { DialogModule } from 'primeng/dialog';
 // import { AddProductComponent } from './pages/admin/add-product/add-product.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputNumber, InputNumberModule } from 'primeng/inputnumber';
+import { DataViewModule } from 'primeng/dataview';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +60,8 @@ import { InputNumber, InputNumberModule } from 'primeng/inputnumber';
     InputTextModule,
     DialogModule,
     DropdownModule,
-    InputNumberModule
+    InputNumberModule,
+    DataViewModule
   ],
   providers: [],
   bootstrap: [AppComponent]
