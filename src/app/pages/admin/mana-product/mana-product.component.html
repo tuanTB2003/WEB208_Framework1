@@ -2,22 +2,63 @@
     <h1 style="font-size: 35px;">Products Management</h1>
 </div>
 <div class="mb-3 flex justify-content-between">
-    <p-button icon="pi pi-plus"></p-button>
+    <!-- <p-button icon="pi pi-plus"></p-button> -->
+    <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+
     <div class="flex gap-2">
         <span class="p-input-icon-left">
             <i class="pi pi-search"></i>
             <input type="text" pInputText [(ngModel)]="value" placeholder="search..." />
         </span>
         <p-button styleClass="p-button-danger" icon="pi pi-trash"></p-button>
-
     </div>
 </div>
+
+<p-dialog [(visible)]="productDialog" [style]="{width: '450px'}" header="Product Details" [modal]="true" class="p-fluid">
+           <ng-template pTemplate="content">
+            <img [src]=" products.image" [alt]="products.image" width="150" class="mt-0 mx-auto mb-5 block shadow-2" *ngIf="products.image">
+
+                <div class="field">
+                    <label for="name">Name</label>
+                    <input type="text" pInputText id="name" >
+                </div>
+                <div class="field">
+                    <label for="description">Description</label>
+                    <textarea id="description" pInputText id="name" ></textarea>
+                </div>
+                <div class="field">
+                    <label for="image">Image</label>
+                    <input type="file" id="image" pInputText id="name" >    
+                    <!-- <img [src]="products.image" [alt]="products.name" width="100" class="shadow-4" /> -->
+
+                </div>
+                <div class="field">
+                    <label for="">category</label>
+                        <p-dropdown [options]="categories" [(ngModel)]="categories" placeholder="select" optionLabel="name" inputId="float-label"></p-dropdown>                  
+                </div>
+                <div class="formgrid grid">
+                    <div class="field col">
+                        <label for="price">Price</label>
+                      <p-inputNumber id="price" [(ngModel)]="products.price" mode="currency" currency="USD" locale="en-US"></p-inputNumber>
+                    </div>
+                    <div class="field col">
+                        <label for="quantity">Quantity</label>
+                        <p-inputNumber id="quantity" [(ngModel)]="products.price"></p-inputNumber>
+                    </div>
+                </div>
+           </ng-template>
+           <ng-template pTemplate="footer">
+            <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" ></button>
+            <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" ></button>
+        </ng-template>
+</p-dialog>
+
 <div class="card">
     <p-table
         [value]="products"
         [paginator]="true"
         [rows]="5"
-        [showCurrentPageReport]="true"
+        [showCurrentPageReport]="true"  
         [tableStyle]="{ 'min-width': '50rem' }"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
         [rowsPerPageOptions]="[10, 25, 50]"
@@ -40,15 +81,15 @@
                 <td>
                     <p-tableCheckbox [value]="product"></p-tableCheckbox>
                 </td>
-                <td><img style="max-width: 160px;box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;" src="https://media.istockphoto.com/id/1237985231/photo/shorts.jpg?s=612x612&w=0&k=20&c=O-52YF684BxeC8EGHu9I68ujBzaPuukYnJrcjshmKb4=" alt=""></td>
+                <td><img style="max-width: 160px;box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;" src={{product.image}} alt=""></td>
                 <td style="font-size: 16px;">{{ product.name.slice(0,90) }}...</td>
                 <td style="font-weight: bold;font-size: 18px;">{{ product.price }}$</td>
                 <td style="font-weight: bold;font-size: 18px;">{{ product.description }}</td>
 
                 <td>
                     <div class="flex gap-3">
-                        <p-button icon="pi pi-file-edit"></p-button>
-                        <p-button styleClass="p-button-danger" icon="pi pi-trash"></p-button>
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editProduct(product)" ></button>
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"></button>
                     </div>
                 </td>
             </tr>

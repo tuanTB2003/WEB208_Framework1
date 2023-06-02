@@ -23,6 +23,10 @@ import { ManaProductComponent } from './pages/admin/mana-product/mana-product.co
 import { InputTextModule } from 'primeng/inputtext';
 import { ManaCategoriesComponent } from './pages/admin/mana-categories/mana-categories.component';
 import { HomeComponent } from './pages/home/home.component';
+import { DialogModule } from 'primeng/dialog';
+// import { AddProductComponent } from './pages/admin/add-product/add-product.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputNumber, InputNumberModule } from 'primeng/inputnumber';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +39,7 @@ import { HomeComponent } from './pages/home/home.component';
     ManaProductComponent,
     ManaCategoriesComponent,
     HomeComponent,
+    // AddProductComponent,
   ],
   imports: [
     FormsModule,
@@ -50,7 +55,10 @@ import { HomeComponent } from './pages/home/home.component';
     TableModule,
     StyleClassModule,
     PanelMenuModule,
-    InputTextModule
+    InputTextModule,
+    DialogModule,
+    DropdownModule,
+    InputNumberModule
   ],
   providers: [],
   bootstrap: [AppComponent]
