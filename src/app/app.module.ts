@@ -28,6 +28,7 @@ import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputNumber, InputNumberModule } from 'primeng/inputnumber';
 import { DataViewModule } from 'primeng/dataview';
+import { RatingModule } from 'primeng/rating';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { DataViewModule } from 'primeng/dataview';
     DialogModule,
     DropdownModule,
     InputNumberModule,
-    DataViewModule
+    DataViewModule,
+    RatingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

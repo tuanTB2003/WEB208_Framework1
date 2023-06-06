@@ -10,7 +10,7 @@ import { ProductsService } from 'src/app/services/products/products.service';
 })
 export class HomeComponent implements OnInit {
 
-  products:any=[]
+    products:any=[]
 
     sortOptions: SelectItem[] = [];
 
@@ -42,6 +42,30 @@ export class HomeComponent implements OnInit {
           // console.log(response)
         }
       )
+      this.sourceCities = [
+        { name: 'San Francisco', code: 'SF' },
+        { name: 'London', code: 'LDN' },
+        { name: 'Paris', code: 'PRS' },
+        { name: 'Istanbul', code: 'IST' },
+        { name: 'Berlin', code: 'BRL' },
+        { name: 'Barcelona', code: 'BRC' },
+        { name: 'Rome', code: 'RM' }];
+
+    this.targetCities = [];
+
+    this.orderCities = [
+        { name: 'San Francisco', code: 'SF' },
+        { name: 'London', code: 'LDN' },
+        { name: 'Paris', code: 'PRS' },
+        { name: 'Istanbul', code: 'IST' },
+        { name: 'Berlin', code: 'BRL' },
+        { name: 'Barcelona', code: 'BRC' },
+        { name: 'Rome', code: 'RM' }];
+
+    this.sortOptions = [
+        { label: 'Price High to Low', value: '!price' },
+        { label: 'Price Low to High', value: 'price' }
+    ];
 
     }
 
